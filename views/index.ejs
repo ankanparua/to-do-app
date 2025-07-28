@@ -25,6 +25,10 @@
         </form>
         <button id="edit<%=item.id%>" class="edit" onclick="handler('<%=item.id%>')"><img class="icon"
             src="/assets/icons/pencil-solid.svg" alt="pencil image"></button>
+        <div class="date">
+          <small><%= item.date %></small>
+        </div>
+        
       </div>
       <% } %>
 

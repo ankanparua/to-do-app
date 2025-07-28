@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "cravelo"; /* Custom name you'll use */
+  src: url("/fonts/Cravelo DEMO.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 html {
   background-color: #e4e9fd;
   background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
@@ -27,6 +33,10 @@ h1 {
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
+.box h1{
+  font-family: 'Cravelo', serif;
+}
+
 #heading {
   background-color: #a683e3;
   text-align: center;
@@ -39,6 +49,7 @@ form.edit {
   min-height: 70px;
   display: flex;
   align-items: center;
+  position: relative;
   border-bottom: 1px solid #f1f1f1;
 }
 
@@ -110,4 +121,19 @@ footer {
   flex: 0 0 auto;
   color: white;
   text-align: center;
+}
+
+.date{
+  width: 75px;
+  height: 10px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  z-index: 1;
+  color: #aaa8a8;
+  font-size: small;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.box p{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

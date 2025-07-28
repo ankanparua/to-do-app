@@ -32,7 +32,7 @@ app.get("/", async (req, res)=>{
         items = result.rows;
 
         res.render("index.ejs", {
-            listTitle: "Today",
+            listTitle: "To-Do App",
             listItems: items,
         });
     }
@@ -41,11 +41,33 @@ app.get("/", async (req, res)=>{
     }
 })
 
+//Getting Date and Time Formats
+function get_formatted_date(){
+    const now = new Date();
+    // Format Date - DD-MM-YY
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+    const year = String(now.getFullYear()).slice(-2); // Last 2 digits of year
+    const formattedDate = `${day}-${month}-${year}`;
+    return formattedDate;
+}
+function get_formatted_time(){
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const formattedTime = `${hours}:${minutes}`;
+    return formattedTime;
+}
+
+
 //Handing Post request
 app.post("/add", async(req, res)=>{
     const new_task = req.body.newItem;
+    const date = get_formatted_date();
+    const time = get_formatted_time();
+    const date_time = time + " | " + date;
     try{
-         await db.query("INSERT INTO items (title) VALUES ($1)", [new_task]);
+         await db.query("INSERT INTO items (title,date) VALUES ($1,$2)", [new_task,date_time]);
 
          res.redirect("/");
     }
@@ -58,9 +80,12 @@ app.post("/add", async(req, res)=>{
 app.post("/edit", async(req, res)=>{
     const item = req.body.updatedItemTitle;
     const id = req.body.updatedItemId;
+    const date = get_formatted_date();
+    const time = get_formatted_time();
+    const date_time = time + " | " + date;
 
     try{
-        await db.query("UPDATE items SET title = ($1) WHERE id = ($2)",[item,id]);
+        await db.query("UPDATE items SET title = ($1), date = ($2) WHERE id = ($3)",[item,date_time,id]);
 
         res.redirect("/");
     }
