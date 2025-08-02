@@ -6,7 +6,7 @@
 }
 html {
   background-color: #e4e9fd;
-  background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+  background-image: -webkit-linear-gradient(65deg, #799EFF 50%, #FEFFC4 50%);
   min-height: 1000px;
   font-family: "helvetica neue";
 }
@@ -38,7 +38,7 @@ h1 {
 }
 
 #heading {
-  background-color: #a683e3;
+  background-color: #799EFF;
   text-align: center;
 }
 form.edit {
@@ -79,7 +79,7 @@ button.add {
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #a683e3;
+  background-color: #799EFF;
   color: #fff;
   font-size: 30px;
   border-width: 0;
@@ -109,7 +109,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #a683e3;
+  box-shadow: inset 0 -3px 0 0 #799EFF;
 }
 
 ::placeholder {
